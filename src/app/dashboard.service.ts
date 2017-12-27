@@ -15,15 +15,24 @@ export class DashboardService {
     private http: HttpClient
   ) { }
 
-  private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
+  // private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
+  private baseUrl = 'http://localhost:4000/api';
   getEvents (): Observable<Event[]>{
-    // let event$ = this.http.get(`${this.baseUrl}`);
+    let event$ = this.http.get(`${this.baseUrl}`);
     return this.http.get<Event[]>(this.baseUrl)
     .pipe(
       catchError(this.handleError('getEvents',[]))
     );
   }
-
+  //this works
+  // getEvents (): Observable<Event[]>{
+  //   // let event$ = this.http.get(`${this.baseUrl}`);
+  //   // return this.http.get<Event[]>(this.baseUrl)
+  //   // .pipe(
+  //   //   catchError(this.handleError('getEvents',[]))
+  //   this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {console.log(data);});
+  //   );
+  // }
 
   private handleError<T> (operation = 'operation', result?:T){
     return (error: any): Observable<T> => {
