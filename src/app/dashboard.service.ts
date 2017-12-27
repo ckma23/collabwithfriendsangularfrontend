@@ -16,6 +16,7 @@ export class DashboardService {
   ) { }
 
   private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
+
   getEvents (): Observable<Event[]>{
     let event$ = this.http.get(`${this.baseUrl}`);
     return this.http.get<Event[]>(this.baseUrl)
@@ -23,15 +24,30 @@ export class DashboardService {
       catchError(this.handleError('getEvents',[]))
     );
   }
-  //this works
-  // getEvents (): Observable<Event[]>{
-  //   // let event$ = this.http.get(`${this.baseUrl}`);
-  //   // return this.http.get<Event[]>(this.baseUrl)
-  //   // .pipe(
-  //   //   catchError(this.handleError('getEvents',[]))
-  //   this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {console.log(data);});
-  //   );
-  // }
+
+  addEvent (event): Observable<Event>{
+    console.log("POST hit")
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    };
+    let body = JSON.stringify(event)
+    return this.http.post<Event>(`${this.baseUrl}`,event, httpOptions)
+    .pipe(
+      catchError(this.handleError<any>('addEvent'))
+    );
+  }
+
+  deleteEvent (event: Event |number): Observable<Event>{
+    console.log("Delete hit")
+    const id = typeof event === 'number'
+    const deleteurl =`${this.baseUrl}/${id}`
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    };
+    let body = JSON.stringify(id)
+    return this.http.delete<Event>(deleteurl,httpOptions)
+
+  }
 
   private handleError<T> (operation = 'operation', result?:T){
     return (error: any): Observable<T> => {

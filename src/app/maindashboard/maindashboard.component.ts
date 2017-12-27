@@ -16,9 +16,15 @@ export class MaindashboardComponent implements OnInit {
   ngOnInit() {
     this.getEvents();
   }
-  
+
   getEvents(): void {
     this.dashboardService.getEvents()
       .subscribe(events => this.events = events);
+  }
+
+  delete(event: Event): void {
+    this.events = this.events.filter(h=>h !== event);
+    this.dashboardService.deleteEvent(event)
+      .subscribe();
   }
 }

@@ -1,0 +1,12 @@
+<div>
+  <form>
+      <input #name placeholder="Name"/>
+      <input #address placeholder="Address"/>
+      <input #date placeholder="Date"/>
+      <input #time placeholder="Time"/>
+  </form>
+
+  <button (click)="add(name.value,address.value,date.value,time.value)">
+    Add Event
+  </button>
+</div>

@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { DashboardService } from './dashboard.service';
 //importing the Dashboard Component into app.module.
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
+import { EventcreatorComponent } from './eventcreator/eventcreator.component';
 
 // defines a module that contains components, directives, pipes, and providers
 @NgModule({
   declarations: [
     AppComponent,
-    MaindashboardComponent
+    MaindashboardComponent,
+    EventcreatorComponent
   ],
   // list of module to import into this module from everything form the imported modules
   imports: [
