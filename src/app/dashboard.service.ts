@@ -15,8 +15,7 @@ export class DashboardService {
     private http: HttpClient
   ) { }
 
-  // private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
-  private baseUrl = 'http://localhost:4000/api';
+  private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
   getEvents (): Observable<Event[]>{
     let event$ = this.http.get(`${this.baseUrl}`);
     return this.http.get<Event[]>(this.baseUrl)
