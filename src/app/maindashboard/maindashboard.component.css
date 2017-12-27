@@ -1,13 +1,41 @@
-.events .badge {
-  font-size: large;
-  color: red;
-  background-color: blue;
-  padding: 20px 20px 20px 20px;
+.events {
+  margin: 0 0 2em 0;
+  list-style-type:none;
+  padding: 0;
+  width: 30em;
 }
 
-.badging {
-  font-size: large;
-  color: red;
-  background-color: blue;
-  padding: 20px 20px 20px 20px;
+.events li {
+  position: relative;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 3em;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.events li:hover {
+  color: #607D8B;
+  background-color: #A9A9A9;
+  left:.1em;
+}
+
+.events p {
+  color: #888;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.myNavbar {
+  background-color:#003366;
+  padding: 10px 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  text-align: center;
+  font-family: sans-serif;
 }
