@@ -11,7 +11,7 @@ import { DashboardService } from '../dashboard.service';
 export class EvententryComponent implements OnInit {
 
   @Input() eventEntry;
-  @Output() eventClick: EventEmitter = new EventEmitter();
+  @Output() eventClick: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
