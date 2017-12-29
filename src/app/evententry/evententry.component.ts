@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { Event } from '../event';
-// import { DashboardService } from '../dashboard.service';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-evententry',
@@ -10,13 +10,19 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class EvententryComponent implements OnInit {
 
-  @Input() event;
+  @Input() eventEntry;
+  @Output() eventClick: EventEmitter = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.event);
+    console.log(this.eventEntry);
     // this.getEvents();
+  }
+
+  deleteEntry(event, eventEntry) {
+    console.log('event', event, eventEntry)
+    this.eventClick.emit(eventEntry);
   }
 
   // getEvents(): void {

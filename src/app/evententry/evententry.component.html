@@ -1,7 +1,7 @@
 <div class="event-entry">
-  <p><a>Name: {{event.name}}</a></p>
-  <p>Address: {{event.address}}</p>
-  <p>Time: {{event.time}}</p>
+  <p><a>Name: {{eventEntry.name}}</a></p>
+  <p>Address: {{eventEntry.address}}</p>
+  <p>Time: {{eventEntry.time}}</p>
   <button class="delete" title="delete event"
-  (click)="delete(event)">x</button>
+  (click)="deleteEntry($event, eventEntry)">x</button>
 </div>
