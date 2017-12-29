@@ -47,7 +47,7 @@ export class DashboardService {
   }
 
 
-  deleteEvent (event: Event |number): Observable<Event>{
+  deleteEvent (event: Event): Observable<Event>{
     console.log("Delete hit")
     const id=event.id
     const deleteurl =`${this.baseUrl}/${id}`
