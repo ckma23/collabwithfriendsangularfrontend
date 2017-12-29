@@ -5,3 +5,10 @@ form {
 input {
   height: 50%;
 }
+
+.event-creator{
+  display:inline-block;
+  width:30%;
+  padding:50px;
+  float:right
+}
