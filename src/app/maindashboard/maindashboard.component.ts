@@ -22,9 +22,9 @@ export class MaindashboardComponent implements OnInit {
       .subscribe(events => this.events = events);
   }
 
-  delete(event: Event): void {
+  deleteEvents(event: Event): void {
     this.events = this.events.filter(h=>h !== event);
-    this.dashboardService.deleteEvent(event)
-      .subscribe();
+    console.log(this.events.filter(h=>h !== event))
+    this.dashboardService.deleteEvent(event).subscribe();
   }
 }

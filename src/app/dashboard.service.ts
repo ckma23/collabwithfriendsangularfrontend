@@ -16,7 +16,7 @@ export class DashboardService {
   ) { }
 
   private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
-
+  // private baseUrl = 'http://localhost:4000/api';
   getEvents (): Observable<Event[]>{
     let event$ = this.http.get(`${this.baseUrl}`);
     return this.http.get<Event[]>(this.baseUrl)
@@ -37,9 +37,19 @@ export class DashboardService {
     );
   }
 
-  deleteEvent (event: Event |number): Observable<Event>{
+  getEvent(id:number): Observable<Event>{
+    const url = `${this.baseUrl}/${id}`;
+    console.log(url)
+    return this.http.get<Event>(url)
+    .pipe(
+      catchError(this.handleError<Event>(`getHero id=${id}`))
+    );
+  }
+
+
+  deleteEvent (event: Event): Observable<Event>{
     console.log("Delete hit")
-    const id = typeof event === 'number'
+    const id=event.id
     const deleteurl =`${this.baseUrl}/${id}`
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json'})
