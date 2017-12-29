@@ -27,4 +27,8 @@ export class EventcreatorComponent implements OnInit {
         this.events.push(event);
       });
   }
+  
+  refresh(): void{
+    window.location.reload();
+  }
 }

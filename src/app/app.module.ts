@@ -14,6 +14,7 @@ import { DashboardService } from './dashboard.service';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { EventcreatorComponent } from './eventcreator/eventcreator.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { EvententryComponent } from './evententry/evententry.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 // defines a module that contains components, directives, pipes, and providers
@@ -28,7 +29,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     MaindashboardComponent,
     EventcreatorComponent,
-    EvententryComponent
+    EvententryComponent,
     EventDetailComponent
   ],
   // list of module to import into this module from everything form the imported modules
