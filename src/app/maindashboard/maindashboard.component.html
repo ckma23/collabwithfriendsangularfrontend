@@ -1,16 +1,22 @@
 <div class="events-container">
   <h2>Welcome to the Events Dashboard!</h2>
-  <div class="row">
-    <ul class="events">
-      <li *ngFor="let event of events">
-        <a>
-          Name: {{event.name}}
-          Address: {{event.address}}
-          Time: {{event.time}}
-        </a>
+  <div class="events-list">
+    <app-evententry *ngFor="let event of events" [event]="event"></app-evententry>
+  </div>
+</div>
+
+<!--
+<div class="events-container">
+  <h2>Welcome to the Events Dashboard!</h2>
+  <div class="events-list">
+    <ul class="events" *ngFor="let event of events">
+      <li>
+          <p><a>Name: {{event.name}}</a></p>
+          <p>Address: {{event.address}}</p>
+          <p>Time: {{event.time}}</p>
         <button class="delete" title="delete event"
         (click)="delete(event)">x</button>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
