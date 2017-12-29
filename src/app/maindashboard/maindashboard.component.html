@@ -1,6 +1,15 @@
 <div class="events-container">
   <h2>Welcome to the Events Dashboard!</h2>
   <div class="events-list">
+    <span class="column-name">column 1</span>
+    <app-evententry *ngFor="let event of events" [event]="event"></app-evententry>
+  </div>
+  <div class="events-list">
+    <span class="column-name">column 2</span>
+    <app-evententry *ngFor="let event of events" [event]="event"></app-evententry>
+  </div>
+  <div class="events-list">
+    <span class="column-name">column 3</span>
     <app-evententry *ngFor="let event of events" [event]="event"></app-evententry>
   </div>
 </div>
