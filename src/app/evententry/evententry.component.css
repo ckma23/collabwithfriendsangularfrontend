@@ -8,6 +8,14 @@
 }
 
 .card-content {
-  padding: 0px !important;
-  margin-left: 1em;
+  margin-top: -1em;
+  padding: 0 0 1em 1em !important;
+}
+
+.delete {
+  float: right;
+  font-size: 14px;
+  color: #6f6f6f;
+  display: inline-block;
+  margin-right: 0.5em;
 }
