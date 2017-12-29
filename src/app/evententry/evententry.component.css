@@ -1,0 +1,13 @@
+.event-entry-container {
+  margin: 1em;
+}
+
+.card-title {
+  margin-top: -1em;
+  margin-left: 0.5em;
+}
+
+.card-content {
+  padding: 0px !important;
+  margin-left: 1em;
+}

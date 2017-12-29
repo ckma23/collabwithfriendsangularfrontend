@@ -1,7 +1,24 @@
-<div class="event-entry">
+<!-- <div class="event-entry card small">
   <p><a>Name: {{eventEntry.name}}</a></p>
   <p>Address: {{eventEntry.address}}</p>
   <p>Time: {{eventEntry.time}}</p>
   <button class="delete" title="delete event"
   (click)="deleteEntry($event, eventEntry)">x</button>
 </div>
+ -->
+
+<div class="event-entry-container">
+  <div class="card small hoverable">
+    <div class="card-image">
+      <img src="https://worldstrides.com/wp-content/uploads/2015/07/Seattle-Before-Dark.jpg"/>
+    </div>
+    <div class="card-title">
+      <p class="card-title-text">name: {{eventEntry.name}}</p>
+    </div>
+    <div class="card-content">
+      <p class="event-address">address: {{eventEntry.address}}</p>
+      <p class="event-time">time: {{eventEntry.time}}</p>
+      <button class="delete" title="delete event"
+  (click)="deleteEntry($event, eventEntry)">x</button>
+    </div>
+  </div>
