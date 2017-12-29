@@ -28,6 +28,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     MaindashboardComponent,
     EventcreatorComponent,
+    EvententryComponent
     EventDetailComponent
   ],
   // list of module to import into this module from everything form the imported modules
