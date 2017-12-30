@@ -16,10 +16,10 @@ export class DashboardService {
     private http: HttpClient
   ) { }
 
-  // private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
-  // private basetripUrl = 'https://still-ocean-16122.herokuapp.com/trips';
-  private baseUrl = 'http://localhost:4000/api';
-  private basetripUrl = 'http://localhost:4000/trips';
+  private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
+  private basetripUrl = 'https://still-ocean-16122.herokuapp.com/trips';
+  // private baseUrl = 'http://localhost:4000/api';
+  // private basetripUrl = 'http://localhost:4000/trips';
 
   getEvents (id): Observable<Event[]>{
     return this.http.get<Event[]>(`${this.basetripUrl}/${id}`)
