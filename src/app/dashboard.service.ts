@@ -16,10 +16,10 @@ export class DashboardService {
     private http: HttpClient
   ) { }
 
-  private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
-  private basetripUrl = 'https://still-ocean-16122.herokuapp.com/trips';
-  // private baseUrl = 'http://localhost:4000/api';
-  // private basetripUrl = 'http://localhost:4000/trips';
+  // private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
+  // private basetripUrl = 'https://still-ocean-16122.herokuapp.com/trips';
+  private baseUrl = 'http://localhost:4000/api';
+  private basetripUrl = 'http://localhost:4000/trips';
 
   getEvents (id): Observable<Event[]>{
     return this.http.get<Event[]>(`${this.basetripUrl}/${id}`)
@@ -29,7 +29,6 @@ export class DashboardService {
   }
 
   addEvent (event): Observable<Event>{
-    console.log("POST hit")
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json'})
     };
@@ -49,30 +48,53 @@ export class DashboardService {
   // }
 
   deleteEvent (event: Event): Observable<Event>{
-    console.log("Delete hit")
     const id=event.id
-    console.log(id)
     const deleteurl =`${this.baseUrl}/${id}`
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json'})
     };
-    let body = JSON.stringify(id)
+    // let body = JSON.stringify(id)
     return this.http.delete<Event>(deleteurl,httpOptions)
-
   }
 
   getTrips (): Observable<Trip[]>{
-    let trip$ = this.http.get(`${this.basetripUrl}`);
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    };
     return this.http.get<Trip[]>(this.basetripUrl)
     .pipe(
       catchError(this.handleError('getTrips',[]))
     );
   }
 
+  addTrips (trip): Observable<Trip[]>{
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    };
+    // let trip$ = this.http.get(`${this.basetripUrl}`);
+    return this.http.post<Trip[]>(`${this.basetripUrl}`,trip,httpOptions)
+    .pipe(
+      catchError(this.handleError('getTrips',[]))
+    );
+  }
+
+  deleteTrip (trip: Trip | number): Observable<Trip>{
+    console.log("Delete hit")
+    const trip_id = typeof trip === 'number' ? trip : trip.trip_id
+    console.log(trip_id)
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    };
+    const deleteurl =`${this.basetripUrl}/${trip_id}`
+    // let body = JSON.stringify(id)
+    return this.http.delete<Trip>(deleteurl,httpOptions).pipe(
+      catchError(this.handleError<Trip>('deleteHero'))
+    )
+  }
+
   private handleError<T> (operation = 'operation', result?:T){
     return (error: any): Observable<T> => {
       console.error(error);
-
       return of(result as T);
     };
   }

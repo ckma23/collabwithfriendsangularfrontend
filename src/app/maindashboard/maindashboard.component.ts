@@ -14,10 +14,17 @@ import { EventcreatorComponent } from '../eventcreator/eventcreator.component';
 export class MaindashboardComponent implements OnInit {
 
   events: Event[];
+  eventsDayOne : Array<any>;
+  eventsDayTwo : Array<any>;
+  eventsDayThree : Array<any>;
 
   constructor(
         private route: ActivatedRoute,
-        private dashboardService: DashboardService){ }
+        private dashboardService: DashboardService){
+          this.eventsDayOne = [];
+          this.eventsDayTwo = [];
+          this.eventsDayThree = [];
+        }
 
   ngOnInit() {
     this.getEvents();
@@ -30,6 +37,23 @@ export class MaindashboardComponent implements OnInit {
       .subscribe(events => this.events = events);
   }
 
+
+  // getEvents(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   // console.log(id)
+  //   this.dashboardService.getEvents(id)
+  //     .subscribe(events => {this.events = events}
+  //       // for (let i = 0; i<this.events.length; i += 1){
+  //       //   console.log("this is my loop",i)
+  //       //   if (this.events[i].date ===) {
+  //       //   }
+  //       //   else if (this.events[i].date ===) {
+  //       //   }
+  //       //   else {this.events[i].date ===){
+  //       //   }
+  //       // }
+  // }
+  
   deleteEvents(eventEntry): void {
     this.events = this.events.filter(e=>e !== eventEntry);
     console.log(this.events)
