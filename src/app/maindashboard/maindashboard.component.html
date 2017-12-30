@@ -1,18 +1,29 @@
-
-<div class="events-container">
-  <h2>Welcome to the Events Dashboard!</h2>
-  <div class="events-list">
-    <span class="column-name">Day 1</span>
-    <app-evententry *ngFor="let eventEntry of events" [eventEntry]="eventEntry" (eventClick)="deleteEvents($event)"></app-evententry>
+<div class="maindashboard-container">
+  <div class="events-container">
+    <h2>Welcome to the Trip Dashboard!</h2>
+    <div class="events-list">
+      <span class="column-name">Day 1</span>
+      <!-- <div>
+        <input #date (keyup.enter)="datefinder(date.value)" placeholder="Date"/>
+      </div> -->
+      <app-evententry *ngFor="let eventEntry of events" [eventEntry]="eventEntry" (eventClick)="deleteEvents($event)"></app-evententry>
+    </div>
+    <div class="events-list">
+      <span class="column-name">Day 2</span>
+      <!-- <div>
+        <input #date (keyup.enter)="datefinder(date.value)" placeholder="Date"/>
+      </div> -->
+      <app-evententry *ngFor="let eventEntry of events" [eventEntry]="eventEntry" (eventClick)="deleteEvents($event)"></app-evententry>
+    </div>
+    <div class="events-list">
+      <span class="column-name">Day 3</span>
+      <!-- <div>
+        <input #date (keyup.enter)="datefinder(date.value)" placeholder="Date"/>
+      </div> -->
+      <app-evententry *ngFor="let eventEntry of events" [eventEntry]="eventEntry" (eventClick)="deleteEvents($event)"></app-evententry>
+    </div>
   </div>
-  <div class="events-list">
-    <span class="column-name">Day 2</span>
-    <app-evententry *ngFor="let eventEntry of events" [eventEntry]="eventEntry" (eventClick)="deleteEvents($event)"></app-evententry>
-  </div>
-  <div class="events-list">
-    <span class="column-name">Day 3</span>
-    <app-evententry *ngFor="let eventEntry of events" [eventEntry]="eventEntry" (eventClick)="deleteEvents($event)"></app-evententry>
-  </div>
+  <app-eventcreator></app-eventcreator>
 </div>
 
 <!--

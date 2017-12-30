@@ -1,0 +1,15 @@
+<div class="trips-container">
+  <h2>Pick Your Trip!</h2>
+  <div class="trip-list">
+    <ul class="trips" *ngFor="let trip of trips">
+      <li>
+          <p><a routerLink="/maindashboard/{{trip.trip_id}}">TripId: {{trip.trip_id}}</a></p>
+          <p>Trip Name: {{trip.trip_name}}</p>
+          <p>Trip Date Start: {{trip.date_start}}</p>
+          <p>Trip Date End: {{trip.date_end}}</p>
+        <button class="delete" title="delete event"
+        (click)="delete(event)">x</button>
+      </li>
+    </ul>
+  </div>
+</div>
