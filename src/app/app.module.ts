@@ -17,6 +17,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EvententryComponent } from './evententry/evententry.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TripsboardComponent } from './tripsboard/tripsboard.component';
+import { SuggestedplacesComponent } from './suggestedplaces/suggestedplaces.component';
 
 // defines a module that contains components, directives, pipes, and providers
 @NgModule({
@@ -32,7 +33,8 @@ import { TripsboardComponent } from './tripsboard/tripsboard.component';
     EventcreatorComponent,
     EvententryComponent,
     EventDetailComponent,
-    TripsboardComponent
+    TripsboardComponent,
+    SuggestedplacesComponent
   ],
   // list of module to import into this module from everything form the imported modules
   providers: [ DashboardService ],
