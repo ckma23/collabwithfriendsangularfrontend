@@ -38,15 +38,6 @@ export class DashboardService {
     );
   }
 
-  // getEvent(id:number): Observable<Event>{
-  //   const url = `${this.baseUrl}/${id}`;
-  //   console.log(url)
-  //   return this.http.get<Event>(url)
-  //   .pipe(
-  //     catchError(this.handleError<Event>(`getHero id=${id}`))
-  //   );
-  // }
-
   deleteEvent (event: Event): Observable<Event>{
     const id=event.id
     const deleteurl =`${this.baseUrl}/${id}`
@@ -91,6 +82,17 @@ export class DashboardService {
       catchError(this.handleError<Trip>('deleteHero'))
     )
   }
+
+
+    // getEvent(id:number): Observable<Event>{
+    //   const url = `${this.baseUrl}/${id}`;
+    //   console.log(url)
+    //   return this.http.get<Event>(url)
+    //   .pipe(
+    //     catchError(this.handleError<Event>(`getHero id=${id}`))
+    //   );
+    // }
+
 
   private handleError<T> (operation = 'operation', result?:T){
     return (error: any): Observable<T> => {

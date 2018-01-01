@@ -16,7 +16,7 @@ export class EvententryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.eventEntry);
+    // console.log(this.eventEntry);
     // this.getEvents();
   }
 

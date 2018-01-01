@@ -19,6 +19,7 @@
       <button class="delete" title="delete event"
   (click)="deleteEntry($event, eventEntry)">x</button>
       <p class="event-address">address: {{eventEntry.address}}</p>
+      <p class="event-time">date: {{eventEntry.date.substr(0,10)}}</p>
       <p class="event-time">time: {{eventEntry.time}}</p>
     </div>
   </div>
