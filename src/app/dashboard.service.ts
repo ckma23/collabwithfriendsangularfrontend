@@ -7,6 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Event } from './event';
 import { Trip } from './trip';
+import { Suggestion } from './suggestion';
 // import { EVENTS } from './mock-events';
 
 @Injectable()
@@ -18,8 +19,17 @@ export class DashboardService {
 
   private baseUrl = 'https://still-ocean-16122.herokuapp.com/api';
   private basetripUrl = 'https://still-ocean-16122.herokuapp.com/trips';
+  private baseYelpUrl = 'https://still-ocean-16122.herokuapp.com/yelp';
   // private baseUrl = 'http://localhost:4000/api';
   // private basetripUrl = 'http://localhost:4000/trips';
+
+  getyelpSuggestions(searchstring): Observable<Suggestion[]>{
+    console.log(searchstring)
+    return this.http.get<Suggestion[]>(`${this.baseYelpUrl}/${searchstring}`)
+    .pipe(
+      catchError(this.handleError('getTrips',[]))
+    );
+  }
 
   getEvents (id): Observable<Event[]>{
     return this.http.get<Event[]>(`${this.basetripUrl}/${id}`)

@@ -1,3 +1,12 @@
-<p>
-  suggestedplaces works!
-</p>
+<div class="suggestion-container">
+  <h6>Suggested Locations from Yelp</h6>
+  <div class="suggestion-list">
+    <ul class="suggestions" *ngFor="let suggestion of suggestions">
+    <div class= "suggestion-card">
+        <img src= {{suggestion.image_url}}/>
+        <p>Place: {{suggestion.name}}</p>
+        <p>Address Name: {{suggestion.location.address1}}</p>
+    </div>
+    </ul>
+  </div>
+</div>
